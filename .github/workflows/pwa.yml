@@ -26,13 +26,13 @@ jobs:
       
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish TestBlazorPWA.sln -c Release -o release --nologo
+      run: dotnet publish BlazorAudioRecorder.sln -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
-      run: sed -i 's/<base href="\/" \/>/<base href="\/TestBlazorPWA\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorAudioRecorder\/" \/>/g' release/wwwroot/index.html
 
-    # changes the base-tag in index.html from '/' to 'TestBlazorPWA' to match GitHub Pages repository subdirectory
+    # changes the base-tag in index.html from '/' to 'BlazorAudioRecorder' to match GitHub Pages repository subdirectory
     - name: Fix service-worker-assets.js hashes
       working-directory: release/wwwroot
       run: |
